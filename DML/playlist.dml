@@ -1,0 +1,18 @@
+/* 플레이리스트 생성 */
+    /* 성공케이스 */
+        /* 1번 회원이 플레이리스트를 추가 */
+        SELECT COUNT(*) FROM member WHERE member_id = '1';
+        INSERT INTO playlist (playlist_id, playlist_title, playlist_description, playlist_register_date, playlist_visibility_flag, member_id)
+        VALUES ('1', 'title1', 'desc1', NOW(), FALSE, '1');
+        INSERT INTO playlist (playlist_id, playlist_title, playlist_description, playlist_register_date, playlist_visibility_flag, member_id)
+        VALUES ('2', 'title2', 'desc2', NOW(), FALSE, '1');
+    
+    /* 실패케이스 */
+        /* 동일한 식별키를 가지는 플레이리스트를 추가 */
+        INSERT INTO playlist (playlist_id, playlist_title, playlist_description, playlist_register_date, playlist_visibility_flag, member_id)
+        VALUES ('2', 'title2', 'desc2', NOW(), FALSE, '1');
+
+        /* 존재하지 않는 회원이 플레이리스트를 추가 */
+        SELECT COUNT(*) FROM member WHERE member_id = '-1';
+        INSERT INTO playlist (playlist_id, playlist_title, playlist_description, playlist_register_date, playlist_visibility_flag, member_id)
+        VALUES ('3', 'title', 'desc', NOW(), FALSE, '-1');
