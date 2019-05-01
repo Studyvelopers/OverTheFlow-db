@@ -16,3 +16,18 @@
         SELECT COUNT(*) FROM member WHERE member_id = '-1';
         INSERT INTO playlist (playlist_id, playlist_title, playlist_description, playlist_register_date, playlist_visibility_flag, member_id)
         VALUES ('3', 'title', 'desc', NOW(), FALSE, '-1');
+
+/* 플레이리스트 수정 */
+    /* 성공케이스 */
+        /* 1번 플레이리스트의 제목을 수정 */
+        UPDATE playlist SET playlist_title = 'update title' WHERE playlist_id = '1';
+
+        /* 존재하지 않는 플레이리스트를 수정 (찾지 못하기 때문에 수정이 일어나지 않는다.) */
+        UPDATE playlist SET playlist_title = 'update' WHERE playlist_id = '-1';
+
+    /* 실패케이스 */
+        /* 중복된 식별키로 수정 */
+        UPDATE playlist SET playlist_id = '1' WHERE playlist_id != '1';
+
+        /* 존재하지 않는 회원 식별키로 수정 */
+        UPDATE playlist SET member_id = '-1' WHERE member_id != '-1';
