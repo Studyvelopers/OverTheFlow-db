@@ -45,3 +45,18 @@
         /* 특정 식별키의 플레이리스트 검색 */
         SELECT * FROM playlist WHERE playlist_id = '1';
         SELECT * FROM playlist WHERE playlist_id = '-1';
+
+/* 플레이리스트 삭제 */
+    /* 성공케이스 */
+        /* 특정 식별키의 재생목록 삭제 */
+        DELETE FROM playlist WHERE playlist_id = '2';
+
+        /* 특정 회원의 재생목록을 모두 삭제 */
+        SELECT COUNT(*) FROM playlist WHERE member_id = '1';
+        DELETE FROM playlist WHERE member_id = '1';
+        SELECT COUNT(*) FROM playlist WHERE member_id = '1';
+
+        /* 모든 플레이리스트를 삭제 */
+        SELECT COUNT(*) FROM playlist;
+        DELETE FROM playlist;
+        SELECT COUNT(*) FROM playlist;
