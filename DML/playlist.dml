@@ -31,3 +31,17 @@
 
         /* 존재하지 않는 회원 식별키로 수정 */
         UPDATE playlist SET member_id = '-1' WHERE member_id != '-1';
+
+/* 플레이리스트 검색 */
+    /* 성공케이스 */
+        /* 모든 플레이리스트 검색 */
+        SELECT * FROM playlist;
+        SELECT COUNT(*) FROM playlist;
+
+        /* 특정 회원의 플레이리스트 검색 */
+        SELECT * FROM playlist WHERE member_id = '1';
+        SELECT COUNT(*) FROM playlist WHERE member_id = '1';
+
+        /* 특정 식별키의 플레이리스트 검색 */
+        SELECT * FROM playlist WHERE playlist_id = '1';
+        SELECT * FROM playlist WHERE playlist_id = '-1';
