@@ -55,3 +55,26 @@
     DELETE FROM member WHERE member_id = '2' member_email = 'abc1234@naver.com' AND member_password = 'abc12345';
     DELETE FROM member WHERE member_id = '1' member_email = 'abc1235@naver.com' AND member_password = 'abc12345';
     DELETE FROM member WHERE member_id = '1' member_email = 'abc1234@naver.com' AND member_password = 'abc12346';
+
+    
+/*회원정보 수정*/
+    
+    /*성공 케이스*/
+        /*회원 식별키와 이메일, 비밀번호가 일치하는 회원의 비밀번호를 수정하는 경우 */
+    UPDATE member SET member_password ='a1234567' WHERE member_id = '1' AND member_email = 'abc1234@naver.com' AND member_password = 'ab12345';
+
+        /*회원 식별키와 이메일, 비밀번호가 일치하는 회원의 닉네임을 수정하는 경우 */
+    UPDATE member SET member_nickname ='1번회원임' WHERE member_id = '1' AND member_email = 'abc1234@naver.com' AND member_password = 'ab12345';
+
+        /*회원 식별키와 이메일, 비밀번호가 일치하는 회원의 소개글를 수정하는 경우 */
+    UPDATE member SET member_introduction ='안녕하세요 1번회원입니다.' WHERE member_id = '1' AND member_email = 'abc1234@naver.com' AND member_password = 'ab12345';
+
+        /*회원 식별키와 이메일, 비밀번호가 일치하는 회원의 비밀번호, 닉네임, 소개글를 수정하는 경우 */
+    UPDATE member SET member_password = 'abc12345', member_nickname = '1번회원임', member_introduction ='안녕하세요 1번회원입니다.' WHERE member_id = '1' AND member_email = 'abc1234@naver.com' AND member_password = 'ab12345';
+
+    /*실패 케이스*/
+        /*회원 식별키와 이메일, 비밀번호가 일치하지 않는 경우*/
+    UPDATE member SET member_password ='a1234567' WHERE member_id = '2' AND member_email = 'abc1234@naver.com' AND member_password = 'ab12345';
+    UPDATE member SET member_password ='a1234567' WHERE member_id = '1' AND member_email = 'abc1235@naver.com' AND member_password = 'ab12345';
+    UPDATE member SET member_password ='a1234567' WHERE member_id = '1' AND member_email = 'abc1234@naver.com' AND member_password = 'ab99999';
+
