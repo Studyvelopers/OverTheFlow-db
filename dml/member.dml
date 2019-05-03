@@ -56,7 +56,7 @@
     DELETE FROM member WHERE member_id = '1' member_email = 'abc1235@naver.com' AND member_password = 'abc12345';
     DELETE FROM member WHERE member_id = '1' member_email = 'abc1234@naver.com' AND member_password = 'abc12346';
 
-    
+
 /*회원정보 수정*/
     
     /*성공 케이스*/
@@ -78,3 +78,25 @@
     UPDATE member SET member_password ='a1234567' WHERE member_id = '1' AND member_email = 'abc1235@naver.com' AND member_password = 'ab12345';
     UPDATE member SET member_password ='a1234567' WHERE member_id = '1' AND member_email = 'abc1234@naver.com' AND member_password = 'ab99999';
 
+/*회원 검색*/
+    
+    /*회원 식별키로 검색하는 경우*/
+SELECT member_id, member_password, member_nickname, member_introduction, member_type_id FROM member WHERE member_id = '1';
+
+    /*회원 이메일로 검색하는 경우*/
+SELECT member_id, member_password, member_nickname, member_introduction, member_type_id FROM member WHERE member_email = 'abc1234@naver.com';
+
+    /*회원 닉네임이 정확하게 일치하는 검색의 경우*/
+SELECT member_id, member_password, member_nickname, member_introduction, member_type_id FROM member WHERE member_nickname = '1번회원';
+
+    /*회원 식별키와 이메일로 검색하는 경우*/
+SELECT member_id, member_password, member_nickname, member_introduction, member_type_id FROM member WHERE memver_id = '1' AND member_email = 'abc1234@naver.com';
+
+    /*회원 식별키와 닉네임으로 검색하는 경우*/
+SELECT member_id, member_password, member_nickname, member_introduction, member_type_id FROM member WHERE member_id = '1' AND member_nickname = '1번회원';
+
+    /*모든 회원 검색*/ 
+SELECT member_id, member_password, member_nickname, member_introduction, member_type_id FROM member;
+
+    /*검색어가 회원 닉네임에 포함되는 경우*/
+SELECT member_id, member_password, member_nickname, member_introduction, member_type_id FROM member WHERE member_nickname LIKE '%1번회원%';
