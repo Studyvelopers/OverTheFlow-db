@@ -27,3 +27,31 @@
         /*member_nickname이 이미 존재하는 1번회원으로 회원을 추가할 때*/
     INSERT INTO member(member_id, member_email, member_password, member_nickname, member_introduction, member_type_id) 
     VALUES ('2', 'abc1234@naver.com', 'abc12345', '1번회원', '2번회원 소개글','일반회원');
+
+/*회원 삭제*/
+    
+    /*성공 케이스*/
+        /*회원식별키로 삭제*/
+    SELECT member_id FROM member WHERE member_id = '1';
+    DELETE FROM member WHERE member_id;
+
+        /*회원 이메일과 비밀번호로 삭제*/
+    SELECT member_id FROM member WHERE member_email = 'abc1234@naver.com' AND member_password = 'abc12345';
+    DELETE FROM member WHERE member_email = 'abc1234@naver.com' AND member_password = 'abc12345';
+
+        /*회원 식별키와 이메일 비밀번호로 삭제*/
+    SELECT member_id FROM member WHERE member_id = '1' AND member_email = 'abc1234@naver.com' AND member_password = 'abc12345';
+    DELETE FROM member WHERE member_id = '1' AND member_email = 'abc1234@naver.com' AND member_password = 'abc12345';
+
+    /*실패 케이스*/
+        /*회원 식별키가 존재하지 않는 경우*/
+    DELETE FROM member_id WHERE member_id;
+
+        /*회원 이메일과 비밀번호가 일치하지 않는 경우*/
+    DELETE FROM member WHERE member_email = 'abc123@naver.com' AND member_password = 'abc12345';
+    DELETE FROM member WHERE member_email = 'abc1234@naver.com' AND member_password = 'abc1234';
+
+        /*회원 식별키와 이메일 비밀번호가 일치하지 않는 경우*/
+    DELETE FROM member WHERE member_id = '2' member_email = 'abc1234@naver.com' AND member_password = 'abc12345';
+    DELETE FROM member WHERE member_id = '1' member_email = 'abc1235@naver.com' AND member_password = 'abc12345';
+    DELETE FROM member WHERE member_id = '1' member_email = 'abc1234@naver.com' AND member_password = 'abc12346';
