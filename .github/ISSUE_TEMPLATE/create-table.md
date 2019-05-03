@@ -37,3 +37,6 @@ member_id | VARCHAR(255) | PK, ...
 ### RELATED ISSUES
 관련된 이슈가 있을 경우 이슈를 링크합니다. (#과 이슈번호를 쓰면 링크됩니다.)
 #1
+
+### BRANCH
+fetch와 merge의 대상이 되는 branch를 작성합니다.
