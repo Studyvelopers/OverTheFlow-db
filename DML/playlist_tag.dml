@@ -26,6 +26,10 @@
         UPDATE playlist_tag SET playlist_id = '2' WHERE playlist_id = '1' AND playlist_tag_contents = 'ABC';
 
 /* 플레이리스트 태그 검색 */
+    /* 플레이리스트 식별키로 검색 */
+        SELECT * FROM playlist_tag WHERE playlist_id = '1';
+    /* 태그명으로 검색 */
+        SELECT * FROM playlist_tag WHERE playlist_tag_contents = 'ABC';
 
 /* 플레이리스트 태그 삭제 */
 
