@@ -16,8 +16,14 @@
         INSERT INTO playlist_tag (playlist_id, playlist_tag_contents)
         VALUES ('-1', 'CBA');
 
-
 /* 플레이리스트 태그 수정 */
+    /* 성공케이스 */
+        /* 중복되는 값이 없도록 수정 */
+        UPDATE playlist_tag SET playlist_id = '2' WHERE playlist_id = '1' AND playlist_tag_contents = 'CBA';
+
+    /* 실패케이스 */
+        /* 중복되는 값으로 수정 */
+        UPDATE playlist_tag SET playlist_id = '2' WHERE playlist_id = '1' AND playlist_tag_contents = 'ABC';
 
 /* 플레이리스트 태그 검색 */
 
