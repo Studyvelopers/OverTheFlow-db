@@ -20,5 +20,11 @@
 
     /* 존재하지 않는 회원이 플레이리스트를 좋아요 하기 */
     INSERT INTO member_likes_playlist VALUES ('-1', '1');
+
+/* 플레이리스트 좋아요 취소하기 */
+    /* 취소의 경우 삭제와 동일 */
+    DELETE FROM member_likes_playlist WHERE member_id = '1' AND playlist_id = '1';
+    /* 회원이 삭제된 경우 전체 삭제 */
+    DELETE FROM member_likes_playlist WHERE member_id = '1';
     
     
