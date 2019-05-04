@@ -32,4 +32,11 @@
         SELECT * FROM playlist_tag WHERE playlist_tag_contents = 'ABC';
 
 /* 플레이리스트 태그 삭제 */
+    /* 태그명과 플레이리스트 식별키로 삭제 */
+        DELETE FROM playlist_tag WHERE playlist_id = '2' AND playlist_tag_contents = 'ABC';
+    /* 태그명으로 삭제 */
+        DELETE FROM playlist_tag WHERE playlist_tag_contents = 'ABC';
+    /* 전체 삭제 */
+        DELETE FROM playlist_tag;
+
 
