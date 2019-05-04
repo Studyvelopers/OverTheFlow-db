@@ -1,0 +1,25 @@
+/* 플레이리스트 태그 생성 */
+    /* 성공케이스 */
+        /* 존재하는 플레이리스트에 태그 추가 */
+        INSERT INTO playlist_tag (playlist_id, playlist_tag_contents)
+        VALUES ('1', 'ABC');
+        INSERT INTO playlist_tag (playlist_id, playlist_tag_contents)
+        VALUES ('1', 'CBA');
+        INSERT INTO playlist_tag (playlist_id, playlist_tag_contents)
+        VALUES ('2', 'ABC');
+
+    /* 실패케이스 */
+        /* 중복 추가 */
+        INSERT INTO playlist_tag (playlist_id, playlist_tag_contents)
+        VALUES ('1', 'CBA');
+        /* 존재하지 않는 플레이리스트에 태그 추가 */
+        INSERT INTO playlist_tag (playlist_id, playlist_tag_contents)
+        VALUES ('-1', 'CBA');
+
+
+/* 플레이리스트 태그 수정 */
+
+/* 플레이리스트 태그 검색 */
+
+/* 플레이리스트 태그 삭제 */
+
