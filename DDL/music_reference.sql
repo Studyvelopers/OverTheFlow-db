@@ -1,0 +1,14 @@
+ALTER TABLE music
+ADD PRIMARY KEY (music_id);
+
+ALTER TABLE music
+ADD FOREIGN KEY (category_id)
+REFERENCES category (category_id)
+ON DELETE CASCADE
+ON UPDATE CASCADE;
+
+ALTER TABLE music
+ADD FOREIGN KEY (member_id)
+REFERENCES member (member_id)
+ON DELETE CASCADE
+ON UPDATE CASCADE;
