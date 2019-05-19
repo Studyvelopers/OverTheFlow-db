@@ -1,0 +1,12 @@
+CREATE TABLE music (
+	music_id VARCHAR(255) NOT NULL,
+	music_title VARCHAR(255) NOT NULL,
+	music_play_time INT NOT NULL DEFAULT 0,
+	music_register_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	music_description TEXT NOT NULL DEFAULT ' ', 
+	music_visibility_flag BOOL NOT NULL DEFAULT TRUE,
+	music_download_flag BOOL NOT NULL DEFAULT FALSE,
+	music_play_count INT NOT NULL DEFAULT 0,
+	category_id VARCHAR(255) NOT NULL,
+	member_id VARCHAR(255) NOT NULL 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

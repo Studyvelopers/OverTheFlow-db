@@ -1,0 +1,4 @@
+CREATE TABLE member_likes_music (
+	member_id VARCHAR(255) NOT NULL,
+	music_id VARCHAR(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
